@@ -82,7 +82,30 @@ void constants() {
     print(m2);
   } on Error catch(e) {
     print(e);
+    // rethrow;
   }
+}
+
+void functions() {
+  print('\n---- 関数');
+  int testInt(int x, int y) {
+    return x + y;
+  }
+  print(testInt(1, 2));
+
+  print('\n---- 名前付き引数');
+  void namedArgs({String a = 'aa', String b = 'bb'}) {
+    print('$a, $b');
+  }
+  namedArgs(a: 'x', b: 'x');
+
+  print('\n---- デフォルト引数');
+  void defaultArgs([String? name]) {
+    name = name ?? 'World';
+    print('Hello $name.');
+  }
+  defaultArgs();
+  defaultArgs('Alice');
 }
 
 void main(List<String> args) {
@@ -90,4 +113,5 @@ void main(List<String> args) {
   calc();
   types();
   constants();
+  functions();
 }
