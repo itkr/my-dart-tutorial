@@ -108,10 +108,24 @@ void functions() {
   defaultArgs('Alice');
 }
 
+void exceptions() {
+  print('\n---- Exceptions');
+  try {
+    throw Exception('例外');
+  } on Exception catch(e, stacktrace) {  // 第2引数省略化
+    print(e);
+    print(stacktrace);
+    // rethrow;  // pythonでexception内で無名raiseみたいなこと
+  } finally {
+    print('finally');
+  }
+}
+
 void main(List<String> args) {
   print('hello');
   calc();
   types();
   constants();
   functions();
+  exceptions();
 }
